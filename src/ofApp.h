@@ -1,12 +1,18 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGui.h"
+#include "of3dPrimitives.h"
+#include "ofCamera.h"
+#include "ofImage.h"
 
 class ofApp : public ofBaseApp{
 	public:
 		void setup();
 		void update();
 		void draw();
+
+		void exit();
 		
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -20,7 +26,21 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+//		void toggleOrthoPressed(ofCamera camera);
+		void getPointColor(int &x, int &y, float &color, bool subSampling);
+
 		ofSpherePrimitive sphere;
 		ofLight light;
 		ofTexture mTex;
+		ofCamera camera;
+		ofxFloatSlider radius;
+		ofxFloatSlider xPos;
+		ofxFloatSlider yPos;
+		ofxFloatSlider zPos;
+		ofxButton orthoToggle;
+		ofxPanel gui;
+		ofPlanePrimitive plane;
+		ofImage img;
+		ofImage img2;
+
 };
